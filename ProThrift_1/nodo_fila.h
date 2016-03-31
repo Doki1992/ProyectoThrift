@@ -51,7 +51,7 @@ struct matriz{
 //si la fila existe se crea una nueva columna
  void getDato(int f,Nodo_dato * dato){
    Nodo<nodo_fila*>* primero = filas->Inicio();
-   while(primero!=NULL){
+   while(primero!=NULL){ 
        if(primero->dato->numero_fila==f){
            primero->dato->Columnas->insertarPrioridad(dato,dato->pos_x);
        }
@@ -80,6 +80,8 @@ struct matriz{
      }
      return NULL;
  }
+
+ 
  QString dibuja_matriz(){
      QString texto = "digraph matriz {";
      //creo rangos iguales
@@ -132,6 +134,25 @@ return texto;
 
      system("dot -Tpng matriz.txt -o matriz.png ");
      system("xdg-open matriz.png");
+ }
+
+ Nodo_dato* getDat(int fila, int columna){
+   Nodo<nodo_fila*>* primero = filas->Inicio();
+   while(primero!=NULL){
+       if(primero->dato->numero_fila==fila){
+       Nodo<  Nodo_dato *>* pri = primero->dato->Columnas->Inicio();
+       int c =0;
+         while(pri!=NULL){
+             if(c==columna){
+                 return pri->dato;
+               }
+             c++;
+             pri=pri->sig;
+           }
+       }
+       primero=primero->sig;
+   }
+   return NULL;
  }
 
 };

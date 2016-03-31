@@ -28,7 +28,7 @@ int main(int argc, char **argv) {
     Nodo_dato* dato3= new Nodo_dato(2,2,0,"agua");
     Nodo_dato* dato4= new Nodo_dato(7,2,0,"agua");
     Nodo_dato* dato5= new Nodo_dato(0,0,0,"agua");
-    Nodo_dato* dato6= new Nodo_dato(0,2,0,"agua");
+    Nodo_dato* dato6= new Nodo_dato(0,2,0,"fuego");//->este es tipo fuego
     Nodo_dato* dato7= new Nodo_dato(0,1,0,"agua");
 
     m1->insertar_columna(dato,dato->pos_y);
@@ -39,7 +39,7 @@ int main(int argc, char **argv) {
     m1->insertar_columna(dato5,dato5->pos_y);
     m1->insertar_columna(dato6,dato6->pos_y);
     m1->insertar_columna(dato7,dato7->pos_y);
-
+    Nodo_dato * prueba = m1->getDat(0,2);//debe devolver el tpo fuego
 
     m1->ejecuta_dot();
   return a.exec();
